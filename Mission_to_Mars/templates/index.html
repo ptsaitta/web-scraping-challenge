@@ -4,7 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Mission to Mars</title>
+    <title>~Mission to Mars~</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   </head>
+  <body>
+    <div class="container">
+        <div class="jumbotron text-center">
+          <h1>Mission to Mars</h1>
+          <!-- Button to do a scrape -->
+          <p><a class="btn btn-primary btn-block btn-dark" href="/scrape" role="button">Click to Scrape!</a></p>
+        </div>
+
+        <!-- Mars News Section -->
+        <!-- make span 12 cols-->
+        <div class="row" id="mars-news">
+            <img class="align-self-start mr-3" src="/../static/red_marble.jpg" alt="Generic Mars Photo">
+            <div class="col-md-12">
+              <div class="media">
+                <div class="media-body">
+                  <h2>Latest Mars News!</h2>
+                  <h4 class="media-heading">{{ mars_title }}</h4>
+                  <p>{{ mars_paragraph }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+    </div>
+  </body>
+</html>
