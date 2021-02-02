@@ -29,9 +29,28 @@
                 </div>
               </div>
             </div>
-          </div>
+        </div>
+
+        <!-- Featured image -->
+        <!-- Should take up two thirds of span-->
+        <div class="row" id="feaured-image">
+            <div class="col-md-8">
+                <h2>Featured Image</h2>
+                <img src="{{mars.featured_image}}" class="img-responsive" alt="Featured image of Mars">
+            </div>
+
+        <!-- put Mars data in the last third--> 
+            <div class="col-md-4">
+                <div class="row" id="mars-facts">
+                    <h2>Mars Facts</h2>
+                    {{mars.mars_facts}}
+                </div>
+            </div>
+        
+        </div>
 
 
+        
 
 
     </div>
