@@ -106,3 +106,43 @@ def mars_facts(browser):
         #convert to HTML table string
         return mars_df.to_html(classes='table table-bordered table-hover')
 
+def get_hemispheres(browser):
+    
+    #visit url
+    url_4 = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    browser.visit(url_4)
+
+    results = hemi_soup.find_all("div",class_='item')
+    hemisphere_image_urls = []
+
+
+    for result in results:
+        #create dict to append result data to
+        hemispheres = {}
+        
+        #go through and get titles and image links
+        titles = result.find('h3').text
+        end_link = result.find("a")["href"]
+        image_link = "https://astrogeology.usgs.gov/" + end_link    
+        
+        #go through and get full image urls
+        browser.visit(image_link)
+        html = browser.html
+        
+    try:
+        iter_soup = soup(html, "html.parser")
+        downloads = iter_soup.find("div", class_="downloads")
+        image_url = downloads.find("a")["href"]
+
+    except (AttributeError, TypeError):
+        return None, None
+        
+        #append to dictionary
+        hemispheres['title']= titles
+        hemispheres['image_url']= image_url
+        hemisphere_image_urls.append(hemispheres)
+    
+    return hemisphere_image_urls
+
+if __name__ == "__main__":
+    print(scrape_new_data())
