@@ -88,3 +88,21 @@ def featured_image(browser):
 
     return featured_image_url
 
+def mars_facts(browser):
+    try:
+        url_3 = "https://space-facts.com/mars/"
+        mars_facts = pd.read_html(url_3)
+    
+    except (AttributeError, TypeError, BaseException):
+        return None
+
+        #put in df
+        mars_df = mars_facts[0]
+
+        #clean up
+        mars_df.columns = ["Property", "Value"]
+        mars_df.set_index("Property", inplace=True)
+
+        #convert to HTML table string
+        return mars_df.to_html(classes='table table-bordered table-hover')
+
